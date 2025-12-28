@@ -76,7 +76,7 @@ public abstract class BSDataGridCoreBase<TGridItem> : BSTableBase, IBSDataGridBa
 
         if (Pagination is not null)
         {
-            Pagination.OnStateChange = async state => { await RefreshDataAsync(); };
+            Pagination.OnStateChange ??= async state => { await RefreshDataAsync(); };
         }
 
         ColumnState.OnStateChange ??= async () => { await RefreshDataAsync(); };
@@ -112,6 +112,7 @@ public abstract class BSDataGridCoreBase<TGridItem> : BSTableBase, IBSDataGridBa
     public Func<Task> OnColumnFilterClicked { get; set; }
 
     private CancellationTokenSource? _pendingDataLoadCancellationTokenSource;
+    private CancellationTokenSource? _virtualizeDebounceTokenSource;
 
     public void ClearSort(Guid id)
     {
@@ -178,6 +179,10 @@ public abstract class BSDataGridCoreBase<TGridItem> : BSTableBase, IBSDataGridBa
 
     private async Task RefreshDataCoreAsync()
     {
+        // If virtualized but ref not yet set, skip - Virtualize will fetch when it renders
+        if (IsVirtualized && VirtualizeRef is null)
+            return;
+
         if (_pendingDataLoadCancellationTokenSource is not null)
         {
             _pendingDataLoadCancellationTokenSource.Cancel();
@@ -259,13 +264,26 @@ public abstract class BSDataGridCoreBase<TGridItem> : BSTableBase, IBSDataGridBa
 
     public async ValueTask<ItemsProviderResult<(int, TGridItem)>> VirtualizedProvider(ItemsProviderRequest request)
     {
-        await Task.Delay(100);
-        var startIndex = request.StartIndex;
-        var count = request.Count;
-        if (request.CancellationToken.IsCancellationRequested)
+        // Cancel any pending debounce and create new one
+        _virtualizeDebounceTokenSource?.Cancel();
+        _virtualizeDebounceTokenSource = new CancellationTokenSource();
+        var debounceToken = _virtualizeDebounceTokenSource.Token;
+
+        // Debounce: wait briefly to allow rapid scroll requests to cancel previous ones
+        try
+        {
+            await Task.Delay(50, debounceToken);
+        }
+        catch (TaskCanceledException)
         {
             return default;
         }
+
+        if (request.CancellationToken.IsCancellationRequested)
+            return default;
+
+        var startIndex = request.StartIndex;
+        var count = request.Count;
 
         if (Pagination is not null)
         {
@@ -311,7 +329,6 @@ public abstract class BSDataGridCoreBase<TGridItem> : BSTableBase, IBSDataGridBa
     {
         if (Pagination is null) return;
         await Pagination.GoToPageAsync(page);
-        await RefreshDataAsync();
     }
 
     //recursively get all properties
@@ -338,5 +355,7 @@ public abstract class BSDataGridCoreBase<TGridItem> : BSTableBase, IBSDataGridBa
     public void Dispose()
     {
         NavigationManager.LocationChanged -= NavigationManagerOnLocationChanged();
+        _virtualizeDebounceTokenSource?.Cancel();
+        _virtualizeDebounceTokenSource?.Dispose();
     }
 }
