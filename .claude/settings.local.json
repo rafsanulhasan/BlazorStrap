@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(find:*)",
-      "Bash(rg:*)"
+      "Bash(rg:*)",
+      "Bash(dotnet build:*)",
+      "Bash(dotnet restore:*)",
+      "Bash(dotnet test:*)",
+      "Bash(git -C /home/jbomhold3/RiderProjects/BlazorStrap add docs/VNext/)",
+      "Bash(git -C /home/jbomhold3/RiderProjects/BlazorStrap status --short)"
     ],
     "deny": []
   }

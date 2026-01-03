@@ -9,7 +9,6 @@ namespace BlazorStrap.Tests;
 
 public class FilterFunctionsTests
 {
- //TODO: Fix tests to work with new FilterFunctions   
     [Fact]
     public void Operator_Equal_FiltersCorrectly()
     {
@@ -20,7 +19,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Keyboard", Price = 49.99 }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Name", Operator.Equal, "Laptop")
         };
@@ -43,7 +42,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung" } }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Details.Manufacturer", Operator.Equal, "Dell")
         };
@@ -66,7 +65,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Keyboard", Price = 49.99 }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Name", Operator.NotEqual, "Laptop")
         };
@@ -89,7 +88,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung" } }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Details.Manufacturer", Operator.NotEqual, "Dell")
         };
@@ -112,7 +111,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung" } }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Name", Operator.StartsWith, "Lap")
         };
@@ -135,7 +134,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung" } }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Details.Manufacturer", Operator.StartsWith, "De")
         };
@@ -158,7 +157,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung" } }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Name", Operator.EndsWith, "top")
         };
@@ -181,7 +180,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung" } }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Details.Manufacturer", Operator.EndsWith, "ll")
         };
@@ -204,7 +203,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung" } }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Name", Operator.Contains, "pto")
         };
@@ -227,7 +226,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung" } }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Details.Manufacturer", Operator.Contains, "el")
         };
@@ -250,7 +249,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung" } }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Name", Operator.NotContains, "pto")
         };
@@ -273,7 +272,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung" } }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Details.Manufacturer", Operator.NotContains, "el")
         };
@@ -296,7 +295,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung" } }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Name", Operator.IsEmpty, "")
         };
@@ -319,7 +318,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung" } }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Details.Manufacturer", Operator.IsEmpty, "")
         };
@@ -341,7 +340,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung" } }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Name", Operator.IsNotEmpty, "")
         };
@@ -364,7 +363,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung" } }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Details.Manufacturer", Operator.IsNotEmpty, "")
         };
@@ -387,7 +386,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung" }, Price = 500.00}
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Price", Operator.GreaterThan, 500.00)
         };
@@ -410,7 +409,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung", ManufactureDate = DateTime.Now} }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Details.ManufactureDate", Operator.GreaterThan, DateTime.Now)
         };
@@ -432,7 +431,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung" }, Price = 500.00}
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Price", Operator.GreaterThanOrEqual, 500.00)
         };
@@ -457,7 +456,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung", ManufactureDate = date} }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Details.ManufactureDate", Operator.GreaterThanOrEqual, date)
         };
@@ -482,7 +481,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung" }, Price = 500.00}
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Price", Operator.LessThan, 1200.00)
         };
@@ -505,7 +504,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung", ManufactureDate = DateTime.Now.AddDays(-5)} }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Details.ManufactureDate", Operator.LessThan, DateTime.Now)
         };
@@ -528,7 +527,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung" }, Price = 500.00}
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Price", Operator.LessThanOrEqual, 1200.00)
         };
@@ -554,7 +553,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Monitor", Details = new ProductDetails { Manufacturer = "Samsung", ManufactureDate = date} }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Details.ManufactureDate", Operator.LessThanOrEqual, date)
         };
@@ -579,7 +578,7 @@ public class FilterFunctionsTests
             new Product { Id = 2, Name = "Keyboard", Price = 49.99 }
         }.AsQueryable();
 
-        var filters = new List<ColumnFilter>
+        var filters = new List<IColumnFilter<Product>>
         {
             CreateColumnFilter("Price", Operator.GreaterThan, "Test")
         };
@@ -591,8 +590,8 @@ public class FilterFunctionsTests
         Assert.Equal(2, filtered.Count());
     }
     
-    private ColumnFilter<T> CreateColumnFilter<T>(string property, Operator @operator, T value)
+    private ColumnFilter<Product> CreateColumnFilter(string property, Operator @operator, dynamic? value)
     {
-        return new ColumnFilter<T>(property, @operator, value);
+        return new ColumnFilter<Product>(property, @operator, value);
     }
 }

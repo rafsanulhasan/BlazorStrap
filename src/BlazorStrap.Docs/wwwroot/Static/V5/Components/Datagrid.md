@@ -34,12 +34,13 @@ See [Tables](V5/content/tables) for additional parameters
 :::
 
 
-| Parameter             | Type                                           | Valid                                          | Remarks/Output                           | 
+| Parameter             | Type                                           | Valid                                          | Remarks/Output                           |
 |-----------------------|------------------------------------------------|------------------------------------------------|------------------------------------------|
 | VirtualPlaceholder    | RenderFragment<PlaceholderContext>             | RenderFragment<PlaceholderContext>             | Placeholder for the virtualized grid row | {.table-striped}
 | IsSortable            | bool                                           | true/false                                     | Enables sorting on the column            |
 | IsFilterable          | bool                                           | true/false                                     | Enables filtering on the column          |
 | Title                 | string                                         | string                                         | Title of the column                      |
+| ColumnKey             | string                                         | string                                         | Unique key for column position tracking  |
 | CustomSort            | Func<SortData<TGridItem>, SortData<TGridItem>> | Func<SortData<TGridItem>, SortData<TGridItem>> | Custom sort function                     |
 | InitialSorted         | bool                                           | true/false                                     | Initial sorted column. Only one is valid |
 | InitialSortDescending | bool                                           | true/false                                     | Initial sort direction                   |
@@ -100,6 +101,10 @@ See [Tables](V5/content/tables) for additional parameters
 ### Type Test
 
 {{sample=V5/Components/DataGrid/DataGrid5}}
+
+### Conditional Column Visibility
+
+{{sample=V5/Components/DataGrid/DataGrid6}}
 
 ### Methods / Events
 :::

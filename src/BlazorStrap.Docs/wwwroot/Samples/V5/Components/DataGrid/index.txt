@@ -8,5 +8,7 @@ DataGrid4.razor.css.md
 DataGrid4.razor.md
 DataGrid5.razor.cs.md
 DataGrid5.razor.md
+DataGrid6.razor.cs.md
+DataGrid6.razor.md
 index.txt
 _imports.razor.md

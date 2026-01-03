@@ -17,7 +17,8 @@ public abstract partial class ColumnBase<TGridItem> : ComponentBase, IDisposable
     [Parameter] public RenderFragment? ChildContent { get; set; } 
     [Parameter] public RenderFragment<PlaceholderContext>? VirtualPlaceholder { get; set; }
     [Parameter] public bool IsSortable { get; set; }
-    [Parameter] public string? Title { get; set; } 
+    [Parameter] public string? Title { get; set; }
+    [Parameter] public string? ColumnKey { get; set; } 
     [Parameter] public Func<SortData<TGridItem>, SortData<TGridItem>>? CustomSort { get; set; }
     [Parameter] public bool InitialSorted { get; set; }
     [Parameter] public bool InitialSortDescending { get; set; } = false;
@@ -34,6 +35,10 @@ public abstract partial class ColumnBase<TGridItem> : ComponentBase, IDisposable
     public IColumnHeaderAccessor? ColumnHeaderAccessor;
     
     public string PropertyPath { get; internal set; }= string.Empty;
+
+    public string? StableKey => ColumnKey
+        ?? (!string.IsNullOrEmpty(PropertyPath) ? PropertyPath : null)
+        ?? (!string.IsNullOrEmpty(Title) ? $"_title_{Title}" : null);
     
     public virtual RenderFragment<TGridItem>? Content { get; set; }
     public virtual RenderFragment<IColumnHeaderAccessor>? Header { get; set; }

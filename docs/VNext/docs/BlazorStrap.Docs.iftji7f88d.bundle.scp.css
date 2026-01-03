@@ -1,0 +1,428 @@
+/* docs/Samples/V4/Components/DataGrid/DataGrid1.razor.rz.scp.css */
+[b-qcp723g2cw] .bs-datagrid {
+    height: 20rem;
+    overflow-y: auto;
+}
+
+[b-qcp723g2cw] .bs-datagrid table{
+    min-width: 100%;
+}
+[b-qcp723g2cw] .bs-datagrid tr {
+    height: 30px;
+}
+
+.grid-header-button[b-qcp723g2cw] {
+    font-weight: inherit;
+    background: none;
+    color: inherit;
+    border: none;
+    text-align: inherit;
+    margin: 0;
+    padding: 0;
+}
+[b-qcp723g2cw] .grid-header-link{
+    font-weight: inherit;
+    background: none;
+    color: inherit;
+    border: none;
+    text-align: inherit;
+    margin: 0 .25rem 0 0;
+    padding: 0;
+}
+th button.sort-by[b-qcp723g2cw] {
+    padding-right: 18px;
+    position: relative;
+}
+
+button.sort-by[b-qcp723g2cw]:before,
+button.sort-by[b-qcp723g2cw]:after {
+    border: 4px solid transparent;
+    content: "";
+    display: block;
+    height: 0;
+    right: 5px;
+    top: 50%;
+    position: absolute;
+    width: 0;
+}
+
+button.sort-by[b-qcp723g2cw]:before {
+    border-bottom-color: #666;
+    margin-top: -9px;
+}
+
+button.sort-by[b-qcp723g2cw]:after {
+    border-top-color: #666;
+    margin-top: 1px;
+}
+
+th button.sort[b-qcp723g2cw] {
+    padding-right: 18px;
+    position: relative;
+}
+
+button.sort[b-qcp723g2cw]:before,
+button.sort[b-qcp723g2cw]:after {
+    border: 4px solid transparent;
+    content: "";
+    display: block;
+    height: 0;
+    right: 5px;
+    top: 50%;
+    position: absolute;
+    width: 0;
+}
+
+button.sort[b-qcp723g2cw]:before {
+    border-bottom-color: #666;
+    margin-top: -9px;
+}
+
+th button.sort-desc[b-qcp723g2cw] {
+    padding-right: 18px;
+    position: relative;
+}
+
+button.sort-desc[b-qcp723g2cw]:before,
+button.sort-desc[b-qcp723g2cw]:after {
+    border: 4px solid transparent;
+    content: "";
+    display: block;
+    height: 0;
+    right: 5px;
+    top: 50%;
+    position: absolute;
+    width: 0;
+}
+
+button.sort-desc[b-qcp723g2cw]:after {
+    border-top-color: #666;
+    margin-top: 1px;
+}
+
+
+.system-uicons--filter[b-qcp723g2cw] {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    --svg: url("data:image/svg+xml,%3Csvg height='21' viewBox='0 0 21 21' width='21' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m.5.5h12l-4 7v3l-3 3v-6z' fill='currentColor' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' transform='translate(4 4)'/%3E%3C/svg%3E");
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+.system-uicons--filter-empty[b-qcp723g2cw] {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    --svg: url("data:image/svg+xml,%3Csvg height='21' viewBox='0 0 21 21' width='21' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m.5.5h12l-4 7v3l-3 3v-6z' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' transform='translate(4 4)'/%3E%3C/svg%3E");
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+.system-uicons--menu[b-qcp723g2cw] {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    --svg: url("data:image/svg+xml,%3Csvg height='21' viewBox='0 0 21 21' width='21' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4.5 6.5h12'/%3E%3Cpath d='m4.498 10.5h11.997'/%3E%3Cpath d='m4.5 14.5h11.995'/%3E%3C/g%3E%3C/svg%3E");
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+
+/* docs/Samples/V4/Components/DataGrid/DataGrid3.razor.rz.scp.css */
+[b-fl9exh7xkq] .bs-datagrid {
+    height: 20rem;
+    overflow-y: auto;
+}
+
+[b-fl9exh7xkq] .bs-datagrid table{
+    min-width: 100%;
+}
+[b-fl9exh7xkq] .bs-datagrid tr {
+    height: 30px;
+}
+[b-fl9exh7xkq] .bs-datagrid td {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 50px !important;
+}
+/* docs/Samples/V4/Components/DataGrid/DataGrid4.razor.rz.scp.css */
+[b-hwyw3892ff] .bs-datagrid {
+    height: 20rem;
+    overflow-y: auto;
+}
+
+[b-hwyw3892ff] .bs-datagrid table{
+    min-width: 100%;
+}
+[b-hwyw3892ff] .bs-datagrid tr {
+    height: 30px;
+}
+[b-hwyw3892ff] .bs-datagrid td {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 50px !important;
+}
+/* docs/Samples/V4/Content/Images/Images6.razor.rz.scp.css */
+text#svg-text[b-j7pdx9w629]  {
+    animation-name: animateSvg-b-j7pdx9w629;
+    transform-origin: 50% 50%;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes animateSvg-b-j7pdx9w629  {
+    from  {
+        transform: rotate(0deg);
+    }
+
+    to  {
+        transform: rotate(360deg);
+    }
+}
+/* docs/Samples/V4/Forms/Validation/ValidationMain.razor.rz.scp.css */
+[b-sdh7w9e5pt] .custom-file-button input[type=file] {
+    margin-left: -2px !important;
+}
+
+    [b-sdh7w9e5pt] .custom-file-button input[type=file]::-webkit-file-upload-button {
+        display: none;
+    }
+
+    [b-sdh7w9e5pt].custom-file-button input[type=file]::file-selector-button {
+        display: none;
+    }
+
+[b-sdh7w9e5pt] .custom-file-button:hover label {
+    background-color: #dde0e3;
+    cursor: pointer;
+}
+/* docs/Samples/V5/Components/DataGrid/DataGrid1.razor.rz.scp.css */
+[b-k8rkt0v1xp] .bs-datagrid {
+    height: 20rem;
+    overflow-y: auto;
+}
+
+[b-k8rkt0v1xp] .bs-datagrid table{
+    min-width: 100%;
+}
+[b-k8rkt0v1xp] .bs-datagrid tr {
+    height: 30px;
+}
+
+.grid-header-button[b-k8rkt0v1xp] {
+    font-weight: inherit;
+    background: none;
+    color: inherit;
+    border: none;
+    text-align: inherit;
+    margin: 0;
+    padding: 0;
+}
+[b-k8rkt0v1xp] .grid-header-link{
+    font-weight: inherit;
+    background: none;
+    color: inherit;
+    border: none;
+    text-align: inherit;
+    margin: 0 .25rem 0 0;
+    padding: 0;
+}
+th button.sort-by[b-k8rkt0v1xp] {
+    padding-right: 18px;
+    position: relative;
+}
+
+button.sort-by[b-k8rkt0v1xp]:before,
+button.sort-by[b-k8rkt0v1xp]:after {
+    border: 4px solid transparent;
+    content: "";
+    display: block;
+    height: 0;
+    right: 5px;
+    top: 50%;
+    position: absolute;
+    width: 0;
+}
+
+button.sort-by[b-k8rkt0v1xp]:before {
+    border-bottom-color: #666;
+    margin-top: -9px;
+}
+
+button.sort-by[b-k8rkt0v1xp]:after {
+    border-top-color: #666;
+    margin-top: 1px;
+}
+
+th button.sort[b-k8rkt0v1xp] {
+    padding-right: 18px;
+    position: relative;
+}
+
+button.sort[b-k8rkt0v1xp]:before,
+button.sort[b-k8rkt0v1xp]:after {
+    border: 4px solid transparent;
+    content: "";
+    display: block;
+    height: 0;
+    right: 5px;
+    top: 50%;
+    position: absolute;
+    width: 0;
+}
+
+button.sort[b-k8rkt0v1xp]:before {
+    border-bottom-color: #666;
+    margin-top: -9px;
+}
+
+th button.sort-desc[b-k8rkt0v1xp] {
+    padding-right: 18px;
+    position: relative;
+}
+
+button.sort-desc[b-k8rkt0v1xp]:before,
+button.sort-desc[b-k8rkt0v1xp]:after {
+    border: 4px solid transparent;
+    content: "";
+    display: block;
+    height: 0;
+    right: 5px;
+    top: 50%;
+    position: absolute;
+    width: 0;
+}
+
+button.sort-desc[b-k8rkt0v1xp]:after {
+    border-top-color: #666;
+    margin-top: 1px;
+}
+
+
+.system-uicons--filter[b-k8rkt0v1xp] {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    --svg: url("data:image/svg+xml,%3Csvg height='21' viewBox='0 0 21 21' width='21' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m.5.5h12l-4 7v3l-3 3v-6z' fill='currentColor' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' transform='translate(4 4)'/%3E%3C/svg%3E");
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+.system-uicons--filter-empty[b-k8rkt0v1xp] {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    --svg: url("data:image/svg+xml,%3Csvg height='21' viewBox='0 0 21 21' width='21' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m.5.5h12l-4 7v3l-3 3v-6z' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' transform='translate(4 4)'/%3E%3C/svg%3E");
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+.system-uicons--menu[b-k8rkt0v1xp] {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    --svg: url("data:image/svg+xml,%3Csvg height='21' viewBox='0 0 21 21' width='21' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4.5 6.5h12'/%3E%3Cpath d='m4.498 10.5h11.997'/%3E%3Cpath d='m4.5 14.5h11.995'/%3E%3C/g%3E%3C/svg%3E");
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+
+/* docs/Samples/V5/Components/DataGrid/DataGrid3.razor.rz.scp.css */
+[b-xoz3zt852s] .bs-datagrid {
+    height: 20rem;
+    overflow-y: auto;
+}
+
+[b-xoz3zt852s] .bs-datagrid table{
+    min-width: 100%;
+}
+[b-xoz3zt852s] .bs-datagrid tr {
+    height: 30px;
+}
+[b-xoz3zt852s] .bs-datagrid td {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 50px !important;
+}
+/* docs/Samples/V5/Components/DataGrid/DataGrid4.razor.rz.scp.css */
+[b-m52906ox3i] .bs-datagrid {
+    height: 20rem;
+    overflow-y: auto;
+}
+
+[b-m52906ox3i] .bs-datagrid table{
+    min-width: 100%;
+}
+[b-m52906ox3i] .bs-datagrid tr {
+    height: 30px;
+}
+[b-m52906ox3i] .bs-datagrid td {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 50px !important;
+}
+/* docs/Samples/V5/Content/Images/Images6.razor.rz.scp.css */
+text#svg-text[b-ylvhdml3ny]  {
+    animation-name: animateSvg-b-ylvhdml3ny;
+    transform-origin: 50% 50%;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes animateSvg-b-ylvhdml3ny  {
+    from  {
+        transform: rotate(0deg);
+    }
+
+    to  {
+        transform: rotate(360deg);
+    }
+}
+/* docs/Samples/V5/Forms/Validation/ValidationMain.razor.rz.scp.css */
+[b-0lnigc4dm0] .custom-file-button input[type=file] {
+    margin-left: -2px !important;
+}
+
+    [b-0lnigc4dm0] .custom-file-button input[type=file]::-webkit-file-upload-button {
+        display: none;
+    }
+
+    [b-0lnigc4dm0].custom-file-button input[type=file]::file-selector-button {
+        display: none;
+    }
+
+[b-0lnigc4dm0] .custom-file-button:hover label {
+    background-color: #dde0e3;
+    cursor: pointer;
+}
